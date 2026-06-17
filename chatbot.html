@@ -61,22 +61,21 @@
             sender: "bot",
           },
         ];
-        const chatMessagesComponent = chatMessages.map((chatMessage) => {
-          return (
-            <ChatMessage
-              //{} lưu code vào prop
-              message={chatMessage.message}
-              sender={chatMessage.sender}
-            />
-          );
-        });
 
         return (
           <>
             <ChatInput />
             <br />
             <br />
-            {chatMessagesComponent}
+            {chatMessages.map((chatMessage) => {
+              return (
+                <ChatMessage
+                  //{} lưu code vào prop
+                  message={chatMessage.message}
+                  sender={chatMessage.sender}
+                />
+              );
+            })}
           </>
         );
       }
