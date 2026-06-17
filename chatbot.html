@@ -27,51 +27,39 @@
           </>
         );
       }
-      // PROPS là tham số trên component
-      // Lúc đầu: function ChatMessage(props)
       function ChatMessage({ message, sender }) {
-        // const message = props.message;
-        // const sender = props.sender;
-        // Create shortcut
-        // const { message, sender } = props;
-        if (sender === "bot") {
-          return (
-            <>
+        return (
+          <div>
+            {sender === "bot" && (
               <img src="./img/robot.png" width="30" height="30" />
-              {message}
-            </>
-          );
-        } else {
-          return (
-            <>
-              {message}
+            )}
+            {message}
+            {sender === "user" && (
               <img src="./img/user.png" width="30" height="30" />
-            </>
-          );
-        }
+            )}
+          </div>
+        );
       }
 
-      const app = (
-        <>
-          <ChatInput />
-          <br />
-          <br />
-          <ChatMessage message="Hello chatbot" sender="user" />
-          <br />
-          <ChatMessage message="How can I help you today?" sender="bot" />
-          <br />
-          <ChatMessage message="Can you get my today's date" sender="user" />
-          <br />
-          <ChatMessage message="Today is 17/06/2026" sender="bot" />
-        </>
-      );
+      function App() {
+        return (
+          <>
+            <ChatInput />
+            <br />
+            <br />
+            <ChatMessage message="Hello chatbot" sender="user" />
+            <br />
+            <ChatMessage message="How can I help you today?" sender="bot" />
+            <br />
+            <ChatMessage message="Can you get my today's date" sender="user" />
+            <br />
+            <ChatMessage message="Today is 17/06/2026" sender="bot" />
+          </>
+        );
+      }
 
-      //Setup React
-      // Method querySelector tìm và lưu element có class js-container
-      // tạo một react root
-      // render với text "Welcome to SuperSimpleDev React Course"
       const container = document.querySelector(".js-container");
-      ReactDOM.createRoot(container).render(app);
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>
