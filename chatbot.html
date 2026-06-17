@@ -42,18 +42,41 @@
       }
 
       function App() {
+        //Lưu data
+        const chatMessages = [
+          {
+            message: "Hello chatbot",
+            sender: "user",
+          },
+          {
+            message: "How can I help you today?",
+            sender: "bot",
+          },
+          {
+            message: "Can you get my today's date",
+            sender: "user",
+          },
+          {
+            message: "Today is 17/06/2026",
+            sender: "bot",
+          },
+        ];
+        const chatMessagesComponent = chatMessages.map((chatMessage) => {
+          return (
+            <ChatMessage
+              //{} lưu code vào prop
+              message={chatMessage.message}
+              sender={chatMessage.sender}
+            />
+          );
+        });
+
         return (
           <>
             <ChatInput />
             <br />
             <br />
-            <ChatMessage message="Hello chatbot" sender="user" />
-            <br />
-            <ChatMessage message="How can I help you today?" sender="bot" />
-            <br />
-            <ChatMessage message="Can you get my today's date" sender="user" />
-            <br />
-            <ChatMessage message="Today is 17/06/2026" sender="bot" />
+            {chatMessagesComponent}
           </>
         );
       }
