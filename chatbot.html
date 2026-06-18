@@ -27,6 +27,7 @@
           </>
         );
       }
+
       function ChatMessage({ message, sender }) {
         return (
           <div>
@@ -42,7 +43,8 @@
       }
 
       function ChatMessages() {
-        const chatMessages = [
+        // into state
+        const array = React.useState([
           {
             message: "Hello chatbot",
             sender: "user",
@@ -63,13 +65,20 @@
             sender: "bot",
             id: "4",
           },
-        ];
+        ]);
+        const chatMessages = array[0];
+        const setChatMessages = array[1];
+
         function sendMessage() {
-          chatMessages.push({
-            message: "test",
-            sender: "user",
-            id: crypto.randomUUID(),
-          }); //{} ý chỉ push object
+          //Tạo copy rồi modify rồi set
+          setChatMessages([
+            ...chatMessages,
+            {
+              message: "test",
+              sender: "user",
+              id: crypto.randomUUID(),
+            },
+          ]);
           //In ra mảng
           console.log(chatMessages);
         }
