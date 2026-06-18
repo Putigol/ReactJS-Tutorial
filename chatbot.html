@@ -41,41 +41,54 @@
         );
       }
 
-      function App() {
-        //Lưu data
+      function ChatMessages() {
         const chatMessages = [
           {
             message: "Hello chatbot",
             sender: "user",
+            id: "1",
           },
           {
             message: "How can I help you today?",
             sender: "bot",
+            id: "2",
           },
           {
             message: "Can you get my today's date",
             sender: "user",
+            id: "3",
           },
           {
             message: "Today is 17/06/2026",
             sender: "bot",
+            id: "4",
           },
         ];
-
         return (
           <>
-            <ChatInput />
-            <br />
-            <br />
             {chatMessages.map((chatMessage) => {
               return (
                 <ChatMessage
                   //{} lưu code vào prop
                   message={chatMessage.message}
                   sender={chatMessage.sender}
+                  key={chatMessage.id}
                 />
               );
             })}
+          </>
+        );
+      }
+
+      function App() {
+        //Lưu data
+
+        return (
+          <>
+            <ChatInput />
+            <br />
+            <br />
+            <ChatMessages />
           </>
         );
       }
