@@ -2,15 +2,18 @@
 //function component
 import React from "react";
 class MyComponent extends React.Component {
-  //render: tập hợp các nguyên liệu raw, hiển thị thành interface
-  //JSX: cho phép viết HTML trong JS, nhưng phải có 1 thẻ bao ngoài
-  //Hạn chế của JSX: chỉ có thể render 1 thẻ.
+  state = {
+    name: "Thịnh Nguyễn",
+    address: "Hà Nội",
+    age: 25,
+  };
+
+  //JSX
   render() {
     return (
       <div>
-        Hello World! This is a simple React Redux counter application
-        {/*{} báo hiệu viết JS logic */}
-        {Math.random()}
+        My name is {this.state.name}, I am {this.state.age} years old and I live
+        in {this.state.address}.
       </div>
     );
   }
