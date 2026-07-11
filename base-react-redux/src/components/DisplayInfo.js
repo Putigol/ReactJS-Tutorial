@@ -26,7 +26,6 @@ class DisplayInfo extends React.Component {
         {this.state.isShowListUser && (
           <div>
             {listUser.map((user, index) => {
-              console.log(">>> check user: ", user);
               return (
                 <div key={user.id} className={user.age > 30 ? "red" : "green"}>
                   <div>My name's {user.name}</div>

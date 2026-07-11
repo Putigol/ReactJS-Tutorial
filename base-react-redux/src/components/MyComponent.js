@@ -14,11 +14,24 @@ class MyComponent extends React.Component {
       ],
     };
   }
+
+  handleAddNewUser = (userObj) => {
+    console.log("userObj: ", userObj);
+    this.setState({
+      listUsers: [userObj, ...this.state.listUsers], //spread operator
+    });
+    // let listUsersCopy = [...this.state.listUsers];
+    // listUsersCopy.push(userObj);
+    // this.setState({
+    //   listUsers: listUsersCopy,
+    // });
+  };
+
   //JSX
   render() {
     return (
       <div>
-        <UserInfo />
+        <UserInfo handleAddNewUser={this.handleAddNewUser} />
         <br />
         <DisplayInfo listUser={this.state.listUsers} />
       </div>
