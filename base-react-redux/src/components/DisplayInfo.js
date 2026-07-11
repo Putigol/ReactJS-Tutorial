@@ -2,11 +2,13 @@ import React from "react";
 
 class DisplayInfo extends React.Component {
   state = {
-    isShow: true,
+    isShowListUser: true,
   };
 
   handleShowHide = () => {
-    alert("Show list users");
+    this.setState({
+      isShowListUser: !this.state.isShowListUser,
+    });
   };
   render() {
     //Destructuring
@@ -14,9 +16,14 @@ class DisplayInfo extends React.Component {
     return (
       <div>
         <div>
-          <span onClick={() => this.handleShowHide()}> Hide list users: </span>
+          <span onClick={() => this.handleShowHide()}>
+            {" "}
+            {this.state.isShowListUser === true
+              ? "Hide list users"
+              : "Show list users"}
+          </span>
         </div>
-        {true && (
+        {this.state.isShowListUser && (
           <div>
             {listUser.map((user, index) => {
               console.log(">>> check user: ", user);
@@ -27,24 +34,6 @@ class DisplayInfo extends React.Component {
                   <hr />
                 </div>
               );
-              //Dấu + trước biến để ép kiểu dữ liệu sang number
-              //   if (+user.age > 30) {
-              //     return (
-              //       <div key={user.id} className="red">
-              //         <div>My name's {user.name}</div>
-              //         <div>My age's {user.age}</div>
-              //         <hr />
-              //       </div>
-              //     );
-              //   } else {
-              // return (
-              //   <div key={user.id} className="green">
-              //     <div>My name's {user.name}</div>
-              //     <div>My age's {user.age}</div>
-              //     <hr />
-              //   </div>
-              // );
-              //   }
             })}
           </div>
         )}
