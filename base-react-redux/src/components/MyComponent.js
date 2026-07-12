@@ -29,8 +29,15 @@ class MyComponent extends React.Component {
 
   //JSX
   render() {
+    const test = "Xin chào React";
+    // const test = {
+    //   name: "Xin chào Thịnh",
+    //   age: 25,
+    // };
     return (
       <>
+        {/* {console.log("test: ", test)} */}
+        {test}
         <div className="a">
           <UserInfo handleAddNewUser={this.handleAddNewUser} />
           <br />
