@@ -7,6 +7,8 @@ class DisplayInfo extends React.Component {
     isShowListUser: true,
   };
 
+  componentDidMount() {}
+
   handleShowHide = () => {
     this.setState({
       isShowListUser: !this.state.isShowListUser,
