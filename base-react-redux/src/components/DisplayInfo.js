@@ -1,16 +1,24 @@
 import React from "react";
 import "./DisplayInfo.scss";
 import logo from "./../logo.svg";
+import { useState } from "react";
 
-//Stateless/Stateful
 const DisplayInfo = (props) => {
   //Viết function component ko dùng this (dùng trong class)
   const { listUser } = props;
-
+  const [isShowHideListUser, setIsShowHideListUser] = useState(true);
+  const handleShowHideListUser = () => {
+    setIsShowHideListUser(!isShowHideListUser);
+  };
   return (
     <div className="display-info-container">
       <img src={logo} alt="logo" className="img" />
-      {true && (
+      <div>
+        <span onClick={() => handleShowHideListUser()}>
+          {isShowHideListUser === true ? "Hide list users" : "Show list users"}
+        </span>
+      </div>
+      {isShowHideListUser && (
         <>
           {listUser.map((user, index) => {
             return (
